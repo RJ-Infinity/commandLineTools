@@ -10,6 +10,6 @@ def main(args):pass
 
 if __name__ == "__main__":
 	face = TermDraw.Pixels(80*CHAR_WIDTH,80*CHAR_WIDTH)
-	face.GenerateCircle()
+	face.drawCircle()
 	img = face.clone()
-	img.drawPixels(CHAR_WIDTH,CHAR_HEIGHT)
+	img.renderPixels(CHAR_WIDTH,CHAR_HEIGHT)

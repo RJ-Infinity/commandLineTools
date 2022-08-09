@@ -12,7 +12,7 @@ class Pixels:
 		rv = Pixels(1,1)
 		rv.__pixels = [l.copy() for l in p]
 		return rv
-	def GenerateCircle(self,diameter = None):
+	def drawCircle(self,diameter = None):
 		if diameter == None:
 			diameter = min(len(self.__pixels[0]),len(self.__pixels))
 		radius = diameter / 2
@@ -24,11 +24,12 @@ class Pixels:
 			for x in range(diameter):
 				self.__pixels[y][x] = x == value1 or x == value2
 		return self
+	
 	def drawPos(self,x,y,value):
 		self.__pixels[y][x] == value
 	def clone(self):
 		return self.__class__.__fromPixels(self.__pixels)
-	def drawPixels(self, charWidth, charHeight):
+	def renderPixels(self, charWidth, charHeight):
 		WidthInChars = int(len(self.__pixels[0])/charWidth)
 		PixelWidth = WidthInChars*charWidth
 		HeightInChars = int((PixelWidth/charHeight)+.5)
