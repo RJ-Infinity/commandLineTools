@@ -42,7 +42,7 @@ class Pixels:
 		self.__pixels[y][x] == value
 	def clone(self):
 		return self.__class__.__fromPixels(self.__pixels)
-	def renderPixels(self, charWidth, charHeight):
+	def renderPixels(self, charWidth, charHeight,file=sys.stdout):
 		WidthInChars = int(len(self.__pixels[0])/charWidth)
 		PixelWidth = WidthInChars*charWidth
 		HeightInChars = int((PixelWidth/charHeight)+.5)
@@ -59,6 +59,6 @@ class Pixels:
 		maxChar = charWidth*charHeight
 		for row in binned:
 			for i in row:
-				sys.stdout.write(self.chars[int(map(i,0,maxChar,0,len(self.chars))+.5)])
-			sys.stdout.write("\n")
-		sys.stdout.flush()
+				file.write(self.chars[int(map(i,0,maxChar,0,len(self.chars))+.5)])
+			file.write("\n")
+		file.flush()
