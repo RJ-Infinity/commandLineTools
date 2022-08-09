@@ -24,7 +24,20 @@ class Pixels:
 			for x in range(diameter):
 				self.__pixels[y][x] = x == value1 or x == value2
 		return self
-	
+	def drawLine(self,x1,y1,x2,y2):
+		if x1>x2:
+			x2,x1=x1,x2
+
+		if y1>y2:
+			y2,y1=y1,y2
+
+		dx = x2 - x1
+		dy = y2 - y1
+
+		for x in range(x1, x2):
+			y = y1 + dy * (x - x1) / dx
+			self.__pixels[int(y+0.5)][int(x+0.5)] = 1
+
 	def drawPos(self,x,y,value):
 		self.__pixels[y][x] == value
 	def clone(self):
